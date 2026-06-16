@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" fill="none">
+  <rect width="1440" height="900" fill="#e8dcc8"/>
+  <g opacity="0.35" stroke="#8b7355" stroke-width="0.75" fill="none">
+    <ellipse cx="720" cy="420" rx="520" ry="280"/>
+    <ellipse cx="680" cy="380" rx="180" ry="120"/>
+    <ellipse cx="920" cy="460" rx="220" ry="140"/>
+    <path d="M120 300 C280 220, 420 180, 620 200 C820 220, 980 280, 1180 340"/>
+    <path d="M180 520 C360 480, 540 500, 760 540 C980 580, 1160 560, 1320 500"/>
+    <path d="M240 360 L320 420 L280 500 L200 460 Z"/>
+    <path d="M980 320 L1080 360 L1040 440 L940 400 Z"/>
+    <path d="M560 580 L660 540 L720 620 L620 660 Z"/>
+    <path d="M400 240 L480 280 L440 340 L360 300 Z"/>
+    <path d="M1100 420 L1180 460 L1140 540 L1060 500 Z"/>
+  </g>
+  <g opacity="0.2" stroke="#6b5344" stroke-width="0.5" fill="none">
+    <line x1="0" y1="450" x2="1440" y2="450"/>
+    <line x1="720" y1="0" x2="720" y2="900"/>
+    <line x1="0" y1="0" x2="1440" y2="900"/>
+    <line x1="1440" y1="0" x2="0" y2="900"/>
+  </g>
+</svg>
