@@ -222,20 +222,25 @@ export function Footer() {
             <ul className="flex flex-col gap-4">
               <li className="flex items-center gap-3 text-sm text-black/80 sm:text-[15px]">
                 <PhoneIcon />
-                (123) 456 78901
+                <a
+                  href="tel:+17728014615"
+                  className="transition-colors hover:text-black"
+                >
+                  (772) 801-4615
+                </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-black/80 sm:text-[15px]">
                 <MailIcon />
                 <a
-                  href="mailto:info@gmail.com"
+                  href="mailto:kynglyonm3@gmail.com"
                   className="transition-colors hover:text-black"
                 >
-                  info@gmail.com
+                  kynglyonm3@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm text-black/80 sm:text-[15px]">
                 <LocationIcon />
-                <span>Your, Dummy, 4578, USA.</span>
+                <span>3 South East Kassada Lane, Port Saint Lucie, Florida 34952</span>
               </li>
             </ul>
           </div>
