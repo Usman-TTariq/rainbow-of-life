@@ -102,6 +102,18 @@ function useActiveSection(sectionIds: ReadonlyArray<string>) {
 export function Navbar() {
   const activeId = useActiveSection(sectionIds);
 
+  const handleNavClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    event.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", `#${id}`);
+  };
+
   return (
     <header className="fixed w-full top-0 z-50 py-5 sm:py-6">
       <div className={siteContainerClass}>
@@ -128,6 +140,7 @@ export function Navbar() {
               <li key={id}>
                 <Link
                   href={`#${id}`}
+                  onClick={(event) => handleNavClick(event, id)}
                   className={
                     isActive
                       ? "text-[18px] font-extrabold capitalize leading-[30px] tracking-normal text-center text-black"

@@ -31,10 +31,10 @@ function ContactIconGradientDefs() {
 }
 
 const quickLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about-author", label: "About The Author" },
-  { href: "/my-books", label: "My Books" },
-  { href: "/contact", label: "Contact" },
+  { href: "#home", label: "Home" },
+  { href: "#about-author", label: "About The Author" },
+  { href: "#my-books", label: "My Books" },
+  { href: "#contact", label: "Contact" },
 ] as const;
 
 const helpfulLinks = [
