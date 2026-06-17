@@ -9,9 +9,9 @@ const LOGO_IMAGE = "/images/Rainbow of Life.png";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about-author", label: "About Author" },
-  { href: "/my-books", label: "My Books" },
-  { href: "/contact", label: "Contact" },
+  { href: "#", label: "About Author" },
+  { href: "#", label: "My Books" },
+  { href: "#", label: "Contact" },
 ] as const;
 
 function CartIcon() {

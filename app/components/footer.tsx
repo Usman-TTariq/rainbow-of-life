@@ -4,8 +4,31 @@ import Link from "next/link";
 import { footerContainerClass } from "./site-container";
 
 const FOOTER_LOGO = "/images/footer-logo.png";
+const CONTACT_ICON_GRADIENT_ID = "footer-contact-icon-gradient";
 
 const accentColor = "text-[#C8945A]";
+
+function ContactIconGradientDefs() {
+  return (
+    <svg aria-hidden="true" className="absolute h-0 w-0 overflow-hidden">
+      <defs>
+        <linearGradient
+          id={CONTACT_ICON_GRADIENT_ID}
+          gradientUnits="userSpaceOnUse"
+          x1="0"
+          y1="24"
+          x2="24"
+          y2="0"
+          gradientTransform="rotate(100.05 12 12)"
+        >
+          <stop offset="-14.45%" stopColor="#DFAA0E" />
+          <stop offset="48.91%" stopColor="#8E1418" />
+          <stop offset="103.36%" stopColor="#005335" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
 
 const quickLinks = [
   { href: "/", label: "Home" },
@@ -37,9 +60,9 @@ function PhoneIcon() {
   return (
     <svg
       aria-hidden="true"
-      className={`size-4 shrink-0 ${accentColor}`}
+      className="size-4 shrink-0"
       fill="none"
-      stroke="currentColor"
+      stroke={`url(#${CONTACT_ICON_GRADIENT_ID})`}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={1.75}
@@ -54,9 +77,9 @@ function MailIcon() {
   return (
     <svg
       aria-hidden="true"
-      className={`size-4 shrink-0 ${accentColor}`}
+      className="size-4 shrink-0"
       fill="none"
-      stroke="currentColor"
+      stroke={`url(#${CONTACT_ICON_GRADIENT_ID})`}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={1.75}
@@ -72,9 +95,9 @@ function LocationIcon() {
   return (
     <svg
       aria-hidden="true"
-      className={`size-4 shrink-0 ${accentColor}`}
+      className="size-4 shrink-0"
       fill="none"
-      stroke="currentColor"
+      stroke={`url(#${CONTACT_ICON_GRADIENT_ID})`}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={1.75}
@@ -183,7 +206,8 @@ export function Footer() {
             <FooterLinkList links={helpfulLinks} />
           </div>
 
-          <div>
+          <div className="relative">
+            <ContactIconGradientDefs />
             <h3 className="mb-5 font-serif text-xl font-bold text-black sm:text-[1.35rem]">
               Contact Info
             </h3>
