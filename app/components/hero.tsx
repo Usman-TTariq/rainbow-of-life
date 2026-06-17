@@ -7,7 +7,7 @@ const HERO_BG = "/images/hero-bg-1.webp";
 
 export function Hero() {
     return (
-        <section className="relative -mt-[2.5rem] min-h-[820px] overflow-x-clip pt-[6.5rem] sm:min-h-[980px] lg:min-h-[1180px]">
+        <section id="home" className="relative -mt-[2.5rem] min-h-[820px] overflow-x-clip pt-[6.5rem] sm:min-h-[980px] lg:min-h-[1180px]">
             <Image src={HERO_BG}
                 alt=""
                 fill

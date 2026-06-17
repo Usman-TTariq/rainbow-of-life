@@ -2,17 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { siteContainerClass } from "./site-container";
 
 const LOGO_IMAGE = "/images/Rainbow of Life.png";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "#", label: "About Author" },
-  { href: "#", label: "My Books" },
-  { href: "#", label: "Contact" },
+  { id: "home", label: "Home" },
+  { id: "about-author", label: "About Author" },
+  { id: "my-books", label: "My Books" },
+  { id: "contact", label: "Contact" },
 ] as const;
+
+const sectionIds = navLinks.map((link) => link.id);
 
 function CartIcon() {
   return (
@@ -52,11 +54,56 @@ function SearchIcon() {
   );
 }
 
+function useActiveSection(sectionIds: ReadonlyArray<string>) {
+  const [activeId, setActiveId] = useState<string>(sectionIds[0] ?? "");
+
+  useEffect(() => {
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (sections.length === 0) return;
+
+    const visibility = new Map<string, number>();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          visibility.set(entry.target.id, entry.intersectionRatio);
+        }
+
+        let bestId = "";
+        let bestRatio = 0;
+        for (const [id, ratio] of visibility) {
+          if (ratio > bestRatio) {
+            bestRatio = ratio;
+            bestId = id;
+          }
+        }
+
+        if (bestId && bestRatio > 0) {
+          setActiveId(bestId);
+        }
+      },
+      {
+        rootMargin: "-80px 0px -55% 0px",
+        threshold: [0, 0.15, 0.3, 0.6, 1],
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, [sectionIds]);
+
+  return activeId;
+}
+
 export function Navbar() {
-  const pathname = usePathname();
+  const activeId = useActiveSection(sectionIds);
 
   return (
-    <header className="absolute w-full top-0 z-50 py-5 sm:py-6">
+    <header className="fixed w-full top-0 z-50 py-5 sm:py-6">
       <div className={siteContainerClass}>
         <nav
           aria-label="Main navigation"
@@ -74,16 +121,13 @@ export function Navbar() {
         </Link>
 
         <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-[67px] md:flex">
-          {navLinks.map(({ href, label }) => {
-            const isActive =
-              href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(href);
+          {navLinks.map(({ id, label }) => {
+            const isActive = activeId === id;
 
             return (
-              <li key={href}>
+              <li key={id}>
                 <Link
-                  href={href}
+                  href={`#${id}`}
                   className={
                     isActive
                       ? "text-[18px] font-extrabold capitalize leading-[30px] tracking-normal text-center text-black"

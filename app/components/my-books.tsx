@@ -8,7 +8,7 @@ const RIGHT_BOOK = "/images/right-book.webp";
 
 export function MyBooks() {
     return (
-        <section className="relative mt-12  sm:mt-16 lg:mt-20">
+        <section id="my-books" className="relative mt-12 scroll-mt-28 sm:mt-16 lg:mt-20">
             <Image src={SECTION_BG}
                 alt=""
                 fill

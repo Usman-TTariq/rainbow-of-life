@@ -141,7 +141,7 @@ function PaymentBadge({ children }: { children: ReactNode }) {
 
 export function Footer() {
   return (
-    <footer className="bg-[#F6E4C9]">
+    <footer id="contact" className="scroll-mt-28 bg-[#F6E4C9]">
       <div className={`${footerContainerClass} py-12 sm:py-14 lg:py-16`}>
         <div className="grid w-full gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 xl:gap-12">
           <div className="flex flex-col gap-5 sm:col-span-2 lg:col-span-1">

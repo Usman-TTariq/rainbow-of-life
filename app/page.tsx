@@ -1,4 +1,5 @@
 import { AboutAuthor } from "./components/about-author";
+import { Gallery } from "./components/gallery";
 import { Hero } from "./components/hero";
 import { Media } from "./components/media";
 import { MyBooks } from "./components/my-books";
@@ -11,6 +12,7 @@ export default function Home() {
       <AboutAuthor />
       <MyBooks />
       <Media />
+      <Gallery />
       <Newsletter />
     </main>
   );

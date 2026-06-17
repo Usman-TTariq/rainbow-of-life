@@ -6,7 +6,7 @@ const AUTHOR_IMAGE = "/images/author.webp";
 
 export function AboutAuthor() {
   return (
-    <section className="relative -mt-24 pb-16 pt-2 sm:-mt-28 sm:pb-20 sm:pt-4 lg:-mt-32 lg:pb-24">
+    <section id="about-author" className="relative -mt-24 scroll-mt-28 pb-16 pt-2 sm:-mt-28 sm:pb-20 sm:pt-4 lg:-mt-32 lg:pb-24">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-100"
