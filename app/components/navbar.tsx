@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { siteContainerClass } from "./site-container";
 
 const LOGO_IMAGE = "/images/Rainbow of Life.png";
+const EMBLEM_IMAGE = "/images/emblem.webp";
 
 const navLinks = [
   { id: "home", label: "Home" },
@@ -121,14 +122,22 @@ export function Navbar() {
           aria-label="Main navigation"
           className="relative flex h-14 w-full items-center justify-between rounded-full border-b  bg-[#faf8f5]/75 px-5 shadow-[0_4px_24px_rgba(0,0,0,0.06)] backdrop-blur-md sm:h-16 sm:px-8"
         >
-        <Link href="/" className="relative block shrink-0">
+        <Link href="#home" className="relative flex shrink-0 items-center gap-2.5">
+          <Image
+            src={EMBLEM_IMAGE}
+            alt=""
+            width={40}
+            height={40}
+            priority
+            className="h-8 w-8 sm:h-9 sm:w-9"
+          />
           <Image
             src={LOGO_IMAGE}
             alt="Rainbow of Life"
             width={224}
             height={24}
             priority
-            className="h-[24px] w-[224px]"
+            className="hidden h-[24px] w-[224px] sm:block"
           />
         </Link>
 

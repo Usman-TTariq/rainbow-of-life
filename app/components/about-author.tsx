@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { buttonBaseClass, buttonGradientClass, siteContainerClass } from "./site-container";
 
-const AUTHOR_IMAGE = "/images/author.webp";
+const AUTHOR_IMAGE = "/images/author-pryce.webp";
+const FLAG_IMAGE = "/images/us-flag.svg";
 
 export function AboutAuthor() {
   return (
@@ -16,14 +17,37 @@ export function AboutAuthor() {
         className={`relative grid items-center gap-12 sm:gap-14 lg:grid-cols-2 xl:gap-[100px] ${siteContainerClass}`}
       >
         <div className="relative z-100 flex justify-center lg:justify-start">
-          <div className="relative z-100 w-full max-w-[720px] sm:max-w-[820px] lg:max-w-none lg:scale-[1.3] lg:origin-left xl:scale-[1.3] 2xl:scale-[1.5]">
-            <Image
-              src={AUTHOR_IMAGE}
-              alt="Michael Pryce, author"
-              width={1000}
-              height={1000}
-              className="h-auto w-full object-contain z-[999] relative -translate-x-30"
-            />
+          <div className="relative mx-auto w-full max-w-[420px] sm:max-w-[460px] lg:mx-0 lg:max-w-[500px]">
+            <div
+              aria-hidden="true"
+              className="absolute -right-4 -top-5 z-0 h-[86%] w-[90%] -rotate-3 overflow-hidden rounded-[30px] shadow-[0_18px_44px_rgba(0,0,0,0.2)] ring-1 ring-black/5 sm:-right-6 sm:-top-7"
+            >
+              <Image
+                src={FLAG_IMAGE}
+                alt=""
+                fill
+                unoptimized
+                sizes="(max-width: 1024px) 90vw, 500px"
+                className="object-cover object-left-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#1a4d3a]/25 via-transparent to-[#DFAA0E]/15 mix-blend-multiply" />
+            </div>
+
+            <div
+              className={`relative z-10 rounded-[30px] p-[3px] shadow-[0_26px_60px_rgba(0,0,0,0.25)] ${buttonGradientClass}`}
+            >
+              <div className="aspect-[4/5] w-full overflow-hidden rounded-[27px] bg-white">
+                <Image
+                  src={AUTHOR_IMAGE}
+                  alt="Michael Pryce, author"
+                  width={880}
+                  height={1100}
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 500px"
+                  className="h-full w-full object-cover object-top"
+                />
+              </div>
+            </div>
           </div>
         </div>
 

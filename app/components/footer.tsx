@@ -4,6 +4,7 @@ import Link from "next/link";
 import { footerContainerClass } from "./site-container";
 
 const FOOTER_LOGO = "/images/footer-logo.png";
+const EMBLEM_IMAGE = "/images/emblem.webp";
 const CONTACT_ICON_GRADIENT_ID = "footer-contact-icon-gradient";
 
 const accentColor = "text-[#C8945A]";
@@ -145,13 +146,20 @@ export function Footer() {
       <div className={`${footerContainerClass} py-12 sm:py-14 lg:py-16`}>
         <div className="grid w-full gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 xl:gap-12">
           <div className="flex flex-col gap-5 sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="inline-block w-fit">
+            <Link href="#home" className="inline-flex w-fit items-center gap-3">
+              <Image
+                src={EMBLEM_IMAGE}
+                alt=""
+                width={56}
+                height={56}
+                className="h-11 w-11 shrink-0 sm:h-12 sm:w-12"
+              />
               <Image
                 src={FOOTER_LOGO}
                 alt="Rainbow of Life"
                 width={320}
                 height={48}
-                className="h-auto w-[240px] sm:w-[280px]"
+                className="h-auto w-[200px] sm:w-[230px]"
               />
             </Link>
             <p className="max-w-xs text-sm leading-7 text-black/70 sm:text-[15px] sm:leading-8">
